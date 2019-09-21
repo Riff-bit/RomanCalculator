@@ -1,6 +1,13 @@
 
 def fromArabic(arab):
     roman = ""
+    if type(arab) != int:
+        return "Immutabilis!"
+
+    if arab >= 4000:
+        return "Immutabilis!"
+    elif arab <= 0:
+        return "Immutabilis!"
 
     while arab > 0:
         if arab >= 1000:
@@ -56,6 +63,7 @@ ILLEGAL = [
     "XXL", "XXC", "XD", "XM",
     "CCD", "CCM",
     "XXXX", "CCCC", "IIII",
+    "IXX", "XCC", "CMM",
 
 ]
 

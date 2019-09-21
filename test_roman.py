@@ -5,6 +5,7 @@ import roman
 class TestRoman(unittest.TestCase):
 
     def testFromArabic(self):
+        self.assertEqual(roman.fromArabic(0), "Immutabilis!")
         self.assertEqual(roman.fromArabic(1),"I")
         self.assertEqual(roman.fromArabic(2),"II")
         self.assertEqual(roman.fromArabic(3),"III")
@@ -22,6 +23,9 @@ class TestRoman(unittest.TestCase):
         self.assertEqual(roman.fromArabic(998), "CMXCVIII")
         self.assertEqual(roman.fromArabic(1586), "MDLXXXVI")
         self.assertEqual(roman.fromArabic(2019), "MMXIX")
+        self.assertEqual(roman.fromArabic(4000), "Immutabilis!")
+        self.assertEqual(roman.fromArabic("asbs"), "Immutabilis!")
+        self.assertEqual(roman.fromArabic(0.333), "Immutabilis!")
 
     def testToArabic(self):
         self.assertEqual(1, roman.toArabic("I"))
@@ -53,4 +57,3 @@ class TestRoman(unittest.TestCase):
         self.assertEqual(-1, roman.toArabic("VL"))
         self.assertEqual(-1, roman.toArabic("VC"))
         self.assertEqual(-1, roman.toArabic("XXL"))
-        self.assertEqual(-1, roman.toArabic("asdf"))

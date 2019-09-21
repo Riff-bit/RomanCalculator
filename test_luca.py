@@ -10,7 +10,11 @@ def umwandeln():
     if direction == choices[0]:
         romanVar.set(roman.fromArabic(int(arab)))
     elif direction == choices[1]:
-        romanVar.set(roman.toArabic(arab))
+        result = roman.toArabic(arab)
+        if result > 0:
+            romanVar.set(result)
+        else:
+            romanVar.set("Immutabilis!")
 
 root = Tk()
 root.title("Umrechner Römisch / Arabisch")
@@ -21,7 +25,7 @@ romanVar = StringVar()
 mainframe = ttk.Frame(root, padding="3 3 12 12")
 mainframe.grid(column=9, row=7, sticky=(N, W, E, S))
 
-w = Label(root, textvariable=romanVar).grid(row=2, column=2, sticky = W)
+w = Label(root, textvariable=romanVar).grid(row=2, column=3, sticky = W)
 root.geometry("500x500")
 
 e1 = Entry(root, textvariable=arabicVar)
