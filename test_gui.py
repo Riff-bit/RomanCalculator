@@ -2,13 +2,14 @@ from tkinter import *
 from tkinter import ttk
 import roman
 
-TO = "ARABIC"
+
 
 def umwandeln():
     arab = arabicVar.get()
-    if TO == "ROMAN":
+    direction = tkvar.get()
+    if direction == choices[0]:
         romanVar.set(roman.fromArabic(int(arab)))
-    elif TO == "ARABIC":
+    elif direction == choices[1]:
         romanVar.set(roman.toArabic(arab))
 
 root = Tk()
@@ -27,5 +28,14 @@ e1.focus_set()
 
 b = Button(root, text="umwandeln", width=10, command=umwandeln)
 b.grid(row=2)
+
+tkvar = StringVar()
+
+choices = ["Arabisch nach Römisch", "Römisch nach Arabisch"]
+tkvar.set(choices[1]) # set the default option
+
+popupMenu = OptionMenu(root, tkvar, *choices)
+Label(root, text="Choose a dish").grid
+popupMenu.grid(row=2, column=1)
 
 root.mainloop()
