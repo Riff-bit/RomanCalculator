@@ -21,14 +21,16 @@ def umwandeln():
 root = Tk()
 root.title("Umrechner Römisch / Arabisch")
 
+
+bg_image = PhotoImage(file="bg-image.gif")
+bg_label = Label(root, image=bg_image)
+bg_label.place(x=0, y=0, relwidth=1, relheight=1)
+
 inputVar = StringVar()
 outputVar = StringVar()
 
-mainframe = ttk.Frame(root, padding="3 3 12 12")
-mainframe.grid(column=9, row=7, sticky=(N, W, E, S))
-
 w = Label(root, textvariable=outputVar).grid(row=2, column=3, sticky = W)
-root.geometry("500x500")
+root.geometry("800x381")
 
 e1 = Entry(root, textvariable=inputVar)
 e1.grid(row=1, column=3)
@@ -43,8 +45,7 @@ choices = ["Arabisch nach Römisch", "Römisch nach Arabisch"]
 tkvar.set(choices[1]) # set the default option
 
 popupMenu = OptionMenu(root, tkvar, *choices)
-
-popupMenu.grid(row=0, column=3,)
+popupMenu.grid(row=0, column=3, pady='20')
 
 label2 = Label(root, text="Umwandeln von:")  #Text hinzugefügt
 label2.grid(row=0, column=2)                          #Text hinzugefüft
@@ -54,12 +55,6 @@ lableentry.grid(row=1, column=2)
 
 lableausgabe = Label(root, text="Ausgabe")
 lableausgabe.grid(row=2, column=2)
-
-lableleer = Label(root, text="      ")
-lableleer.grid(row=0)
-
-lableleer2 = Label(root, text="      ")
-lableleer2.grid(row=4, column=4)
 
 bdelete = Button(root, text="Kapitulation!", width=10, command=delete)
 bdelete.grid(row=3, column=3, sticky=E)
