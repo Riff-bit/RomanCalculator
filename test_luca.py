@@ -20,7 +20,7 @@ romanVar = StringVar()
 mainframe = ttk.Frame(root, padding="3 3 12 12")
 mainframe.grid(column=9, row=7, sticky=(N, W, E, S))
 
-w = Label(root, textvariable=romanVar).grid(row=0)
+w = Label(root, textvariable=romanVar).grid(row=1)
 root.geometry("500x500")
 
 e1 = Entry(root, textvariable=arabicVar)
@@ -28,7 +28,7 @@ e1.grid(row=1, column=2)
 e1.focus_set()
 
 b = Button(root, text="umwandeln", width=10, command=umwandeln)
-b.grid(row=7)
+b.grid(row=3)
 
 tkvar = StringVar()
 
@@ -38,5 +38,9 @@ tkvar.set(choices[1]) # set the default option
 popupMenu = OptionMenu(root, tkvar, *choices)
 Label(root, text="Choose a dish").grid
 popupMenu.grid(row=0, column=8,)
+
+label2 = Label(root, text="Umwandeln von:")  #Text hinzugefügt
+label2.grid(row=0)
+
 
 root.mainloop()
