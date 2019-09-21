@@ -23,4 +23,21 @@ class TestRoman(unittest.TestCase):
         self.assertEqual(roman.fromArabic(1586), "MDLXXXVI")
         self.assertEqual(roman.fromArabic(2019), "MMXIX")
 
-
+    def testToArabic(self):
+        self.assertEqual(1, roman.toArabic("I"))
+        self.assertEqual(3, roman.toArabic("III"))
+        self.assertEqual(4, roman.toArabic("IV"))
+        self.assertEqual(9, roman.toArabic("IX"))
+        self.assertEqual(10, roman.toArabic("X"))
+        self.assertEqual(42, roman.toArabic("XLII"))
+        self.assertEqual(57, roman.toArabic("LVII"))
+        self.assertEqual(98, roman.toArabic("XCVIII"))
+        self.assertEqual(106, roman.toArabic("CVI"))
+        self.assertEqual(225, roman.toArabic("CCXXV"))
+        self.assertEqual(444, roman.toArabic("CDXLIV"))
+        self.assertEqual(555, roman.toArabic("DLV"))
+        self.assertEqual(733, roman.toArabic("DCCXXXIII"))
+        self.assertEqual(876, roman.toArabic("DCCCLXXVI"))
+        self.assertEqual(999, roman.toArabic("CMXCIX"))
+        self.assertEqual(1024, roman.toArabic("MXXIV"))
+        self.assertEqual(2048, roman.toArabic("MMXLVIII"))

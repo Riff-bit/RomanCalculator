@@ -1,6 +1,4 @@
 
-
-
 def fromArabic(arab):
     roman = ""
 
@@ -45,4 +43,37 @@ def fromArabic(arab):
             roman += "I"
             arab -= 1
     return roman
+
+def toArabic(roman):
+    arab = 0
+    last = ""
+    for c in roman:
+        if c == "I":
+            arab += 1
+        elif c == "V":
+            arab += 5
+            if last == "I":
+                arab -= 2
+        elif c == "X":
+            arab += 10
+            if last == "I":
+                arab -= 2
+        elif c == "L":
+            arab += 50
+            if last == "X":
+                arab -= 20
+        elif c == "C":
+            arab += 100
+            if last == "X":
+                arab -= 20
+        elif c == "D":
+            arab += 500
+            if last == "C":
+                arab -= 200
+        elif c =="M":
+            arab += 1000
+            if last == "C":
+                arab -= 200
+        last = c
+    return arab
 
