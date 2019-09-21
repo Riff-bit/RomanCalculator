@@ -44,7 +44,7 @@ class TestRoman(unittest.TestCase):
         self.assertEqual(-1, roman.toArabic("IVV"))
         self.assertEqual(-1, roman.toArabic("VV"))
         self.assertEqual(-1, roman.toArabic("MXXXX"))
-        self.assertEqual(-1, roman.toArabic("LL"))
+        self.assertEqual(-1, roman.toArabic("LL "))
         self.assertEqual(-1, roman.toArabic("DD"))
         self.assertEqual(-1, roman.toArabic("IIII"))
         self.assertEqual(-1, roman.toArabic("CCCC"))
