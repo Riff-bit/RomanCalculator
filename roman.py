@@ -44,9 +44,34 @@ def fromArabic(arab):
             arab -= 1
     return roman
 
+LEGAL = [
+    "I", "V" ,"L", "X", "L", "C", "D", "M"
+]
+
+ILLEGAL = [
+    "VX", "VL", "VC", "VD", "VM", "VV",
+    "LC", "LD", "LM", "LL",
+    "DM", "DD",
+    "IIX", "IIV", "IL", "IC", "ID", "IM",
+    "XXL", "XXC", "XD", "XM",
+    "CCD", "CCM",
+    "XXXX", "CCCC", "IIII",
+
+]
+
+
+
 def toArabic(roman):
     arab = 0
-    last = ""
+    last = "  "
+    for c in roman:
+        if c not in LEGAL:
+            return -1
+
+    for pattern in ILLEGAL:
+        if pattern in roman:
+            return -1
+
     for c in roman:
         if c == "I":
             arab += 1
@@ -70,7 +95,7 @@ def toArabic(roman):
             arab += 500
             if last == "C":
                 arab -= 200
-        elif c =="M":
+        elif c == "M":
             arab += 1000
             if last == "C":
                 arab -= 200
