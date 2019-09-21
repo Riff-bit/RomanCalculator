@@ -2,10 +2,14 @@ from tkinter import *
 from tkinter import ttk
 import roman
 
+TO = "ARABIC"
+
 def umwandeln():
     arab = arabicVar.get()
-    print(arab, type(arab))
-    romanVar.set(roman.fromArabic(int(arab)))
+    if TO == "ROMAN":
+        romanVar.set(roman.fromArabic(int(arab)))
+    elif TO == "ARABIC":
+        romanVar.set(roman.toArabic(arab))
 
 root = Tk()
 
